@@ -38,9 +38,21 @@ namespace testDB_using_EF
                 switch (userSelected)
                 {
                     case crud.insert:
+                        var newEmployee = new Employee()
+                        {
+                            FirstName = "Pranaya",
+                            MiddleName = "J",
+                            LastName = "Rout",
+                            EmpCode = 12,
+                            Gender = 1,
+                            DOB = DateTime.Now,
+                            salary = 54166,
+                            JoiningDate = DateTime.Now,
+                            ResignDate = DateTime.Now,
 
+                        };
                         CrudOpration insert = new CrudOpration();
-                        insert.Add();
+                        insert.Add(newEmployee);
 
                         break;
 

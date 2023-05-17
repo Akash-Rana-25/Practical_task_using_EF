@@ -12,28 +12,28 @@ namespace testDB_using_EF
 {
     internal class CrudOpration : ICrudOpration
     {
-        public void Add()
+        public void Add(Employee employee)
         {
 
-            var newEmployee = new Employee()
-            {
-                FirstName = "Pranaya",
-                MiddleName = "J",
-                LastName = "Rout",
-                EmpCode = 12,
-                Gender = 1,
-                DOB = DateTime.Now,
-                salary = 54166,
-                JoiningDate = DateTime.Now,
-                ResignDate = DateTime.Now,
-
-            };
+          
             using (EmployeeEntities context = new EmployeeEntities())
             {
+                
+                
 
-                context.Employees.Add(newEmployee);
+                Employee emp = context.Employees.Add(employee);
                 context.SaveChanges();
 
+
+                if (emp != null)
+                {
+                    Console.WriteLine("\n Employee Added");
+                }
+                else
+                {
+                    Console.WriteLine("\n Somthing Went Wrong");
+
+                }
 
             }
         }
@@ -116,11 +116,6 @@ namespace testDB_using_EF
                     Console.WriteLine("\n Employee Does Not Exist");
 
                 }
-
-
-
-
-
             }
         }
 
